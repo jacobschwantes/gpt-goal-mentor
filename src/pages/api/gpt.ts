@@ -40,10 +40,8 @@ export const createPlan = async (
       ],
     })
     .then((response) => {
-      console.log(response);
       const data = response.data.choices[0].message?.content;
       const cleaned = data && data.replace(/(\r\n|\n|\r)/gm, "");
-      cleaned && console.log(JSON.parse(cleaned));
       return JSON.parse(cleaned || "");
     })
     .catch((error) => {
